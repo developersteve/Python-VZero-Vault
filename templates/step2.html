@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <div class='container'>
+
+      <div class="col-md-offset-1 col-md-5 col-xs-12 col-sm-6">
+        <p>A test user has been created on the Braintree with customer id {{custid}}</p>
+        <p>The Vault token is {{result.payment_method.token}}</p>
+      </div>
+
+      <form class='col-md-5 col-xs-12 col-sm-6' action='/step3' method='post'>
+
+       <div class="row">
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="amount" name="amount" aria-describedby="sizing-addon1">
+            <span class="input-group-addon" id="sizing-addon1">Amount</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div id='checkout'>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group col-md-6">
+            <input type='hidden' value='{{custid}}' name='custid'>
+            <input type='hidden' value='{{result.payment_method.token}}' name='token'>
+            <input type='submit' value='Transact against token' class='btn btn-danger btn-lg'>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+{% endblock %}
+

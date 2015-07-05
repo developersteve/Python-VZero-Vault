@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <div class='container'>
+
+      <div class="col-md-offset-1 col-md-5 col-xs-12 col-sm-6">
+        <p>A test user has been created on the Braintree with customer id {{custid}}</p>
+        <p>The Vault token is {{token}}</p>
+        <p>Transaction Complete, transaction id {{result.transaction.id}}</p>
+      </div>
+
+      <div class="col-md-offset-1 col-md-5 col-xs-12 col-sm-6">
+        {{result}}
+      </div>
+
+    </div>
+
+{% endblock %}
+
